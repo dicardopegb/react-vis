@@ -122,7 +122,8 @@ class RadialChart extends Component {
       radius,
       showLabels,
       style,
-      width
+      width,
+      viewBox
     } = this.props;
     const mappedData = getWedgesToRender({data, height, hideRootNode, width, getAngle});
     const radialDomain = getRadialDomain(mappedData);
@@ -156,6 +157,7 @@ class RadialChart extends Component {
       <XYPlot
         height={height}
         width={width}
+        viewBox={viewBox}
         margin={{
           ...margin,
           ...defaultMargin
