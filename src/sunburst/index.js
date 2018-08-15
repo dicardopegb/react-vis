@@ -143,7 +143,8 @@ class Sunburst extends React.Component {
       getLabel,
       width,
       getSize,
-      colorType
+      colorType,
+      viewBox
     } = this.props;
     const mappedData = getNodesToRender({data, height, hideRootNode, width, getSize});
     const radialDomain = getRadialDomain(mappedData);
@@ -159,6 +160,7 @@ class Sunburst extends React.Component {
     const hofBuilder = f => (e, i) => f ? f(mappedData[e.index], i) : NOOP;
     return (
       <XYPlot
+        viewBox={viewBox}
         height={height}
         hasTreeStructure
         width={width}

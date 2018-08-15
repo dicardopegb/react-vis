@@ -522,16 +522,17 @@ class XYPlot extends React.Component {
       dontCheckIfEmpty,
       style,
       width,
-      height
+      height,
+      viewBox
     } = this.props;
-
+    console.log(style);
     if (!dontCheckIfEmpty && this._isPlotEmpty()) {
       return (
         <div
           className={`rv-xy-plot ${className}`}
           style={{
-            width: `${width}px`,
-            height: `${height}px`,
+            width: viewBox ? undefined : `${width}px`,
+            height: viewBox ? undefined : `${height}px`,
             ...this.props.style
           }}/>
       );
@@ -540,15 +541,16 @@ class XYPlot extends React.Component {
     return (
       <div
         style={{
-          width: `${width}px`,
-          height: `${height}px`
+          width: viewBox ? undefined : `${width}px`,
+          height: viewBox ? undefined : `${height}px`
         }}
         className={`rv-xy-plot ${className}`}>
         <svg
           className="rv-xy-plot__inner"
-          width={width}
-          height={height}
+          width={viewBox ? undefined : width}
+          height={viewBox ? undefined : height}
           style={style}
+          viewBox={viewBox}
           onClick={this._clickHandler}
           onDoubleClick={this._doubleClickHandler}
           onMouseDown={this._mouseDownHandler}
