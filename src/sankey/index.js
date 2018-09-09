@@ -44,6 +44,7 @@ class Sankey extends Component {
       hasVoronoi,
       height,
       hideLabels,
+      labelRotation,
       layout,
       links,
       linkOpacity,
@@ -123,15 +124,22 @@ class Sankey extends Component {
           <LabelSeries
             animation={animation}
             className={className}
-            data={nodesCopy.map(node => {
+            rotation={labelRotation}
+            labelAnchorY="text-before-edge"
+            data={nodesCopy.map((node, i) => {
+
               return {
                 x: node.x0 + (node.x0 < width / 2 ? nWidth + 10 : -10),
                 y: (node.y0 + node.y1) / 2 - marginTop,
                 label: node.name,
                 style: {
+                  textAnchor: node.x0 < width / 2 ? 'start' : 'end',
                   dy: '-.5em',
                   ...style.labels
-                }
+                },
+                // unfortunately this can not be ...node as the version
+                // found in nodesCopy is modified by the sankey process
+                ...nodes[i]
               };
             })}
             />
@@ -162,6 +170,7 @@ Sankey.defaultProps = {
   className: '',
   hasVoronoi: false,
   hideLabels: false,
+  labelRotation: 0,
   layout: 50,
   margin: DEFAULT_MARGINS,
   nodePadding: 10,
@@ -178,12 +187,14 @@ Sankey.defaultProps = {
     labels: {}
   }
 };
+
 Sankey.propTypes = {
   align: PropTypes.oneOf(['justify', 'left', 'right', 'center']),
   className: PropTypes.string,
   hasVoronoi: PropTypes.bool,
   height: PropTypes.number.isRequired,
   hideLabels: PropTypes.bool,
+  labelRotation: PropTypes.number,
   layout: PropTypes.number,
   links: PropTypes.arrayOf(PropTypes.shape({
     source: PropTypes.oneOfType([

@@ -193,6 +193,10 @@ RadialChart.propTypes = {
   ).isRequired,
   getAngle: PropTypes.func,
   getAngle0: PropTypes.func,
+  padAngle: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.number
+  ]),
   getRadius: PropTypes.func,
   getRadius0: PropTypes.func,
   getLabel: PropTypes.func,
@@ -212,6 +216,7 @@ RadialChart.defaultProps = {
   className: '',
   colorType: 'category',
   colorRange: DISCRETE_COLOR_RANGE,
+  padAngle: 0,
   getAngle: d => d.angle,
   getAngle0: d => d.angle0,
   getRadius: d => d.radius,

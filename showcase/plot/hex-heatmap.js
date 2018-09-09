@@ -22,7 +22,14 @@ import React, {Component} from 'react';
 
 import ShowcaseButton from '../showcase-components/showcase-button';
 
-import {XYPlot, XAxis, YAxis, ContourSeries, MarkSeriesCanvas, Borders} from 'index';
+import {
+  XYPlot,
+  XAxis,
+  YAxis,
+  HexbinSeries,
+  Borders,
+  Hint
+} from 'index';
 
 import DATA from '../datasets/old-faithful.json';
 
@@ -32,42 +39,63 @@ function updateData() {
     eruptions: row.eruptions + (Math.random() - 0.5) * 2
   }));
 }
-export default class ContourSeriesExample extends Component {
+export default class HexHeatmap extends Component {
   state = {
-    data: DATA
+    data: DATA,
+    hoveredNode: null,
+    radius: 10,
+    offset: 0
   }
   render() {
-    const {data} = this.state;
+    const {data, radius, hoveredNode, offset} = this.state;
+
     return (
       <div>
         <XYPlot
           xDomain={[40, 100]}
           yDomain={[1.5, 8]}
-          width={600}
+          width={300}
           getX={d => d.waiting}
           getY={d => d.eruptions}
+          onMouseLeave={() => this.setState({hoveredNode: null})}
           height={300}>
-          <ContourSeries
+          <HexbinSeries
             animation
-            className="contour-series-example"
+            className="hexbin-example"
             style={{
               stroke: '#125C77',
               strokeLinejoin: 'round'
             }}
-            colorRange={[
-              '#79C7E3',
-              '#FF9833'
-            ]}
+            onValueMouseOver={d => this.setState({hoveredNode: d})}
+            xOffset={offset}
+            yOffset={offset}
+            colorRange={['orange', 'cyan']}
+            radius={radius}
             data={data}/>
-          <MarkSeriesCanvas animation data={data} size={1} color={'#125C77'}/>
           <Borders style={{all: {fill: '#fff'}}}/>
           <XAxis />
           <YAxis />
-
+          {hoveredNode && <Hint
+            xType="literal"
+            yType="literal"
+            getX={d => d.x}
+            getY={d => d.y}
+            value={{
+              x: hoveredNode.x,
+              y: hoveredNode.y,
+              value: hoveredNode.length
+            }}
+            />}
         </XYPlot>
         <ShowcaseButton
           onClick={() => this.setState({data: updateData()})}
-          buttonContent={'UPDATE'} />
+          buttonContent={'UPDATE DATA'} />
+        <ShowcaseButton
+          onClick={() => this.setState({radius: (Math.random() - 0.5) * 10 + 10})}
+          buttonContent={'UPDATE RADIUS'} />
+        <ShowcaseButton
+          onClick={() => this.setState({offset: (Math.random() - 0.5) * 10 + 10})}
+          buttonContent={'UPDATE OFFSET'} />
       </div>
     );
   }
