@@ -159,7 +159,7 @@ function Sunburst(props) {
   const hofBuilder = f => (e, i) => (f ? f(mappedData[e.index], i) : NOOP);
   return (
     <XYPlot
-        viewBox={viewBox}
+      viewBox={viewBox}
       height={height}
       hasTreeStructure
       width={width}

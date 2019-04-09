@@ -435,9 +435,9 @@ var XYPlot = function (_React$Component) {
           dontCheckIfEmpty = _props.dontCheckIfEmpty,
           style = _props.style,
           width = _props.width,
-          height = _props.height;
+          height = _props.height,
+          viewBox = _props.viewBox;
 
-      viewBox;
 
       if (!dontCheckIfEmpty && this._isPlotEmpty()) {
         return _react2.default.createElement('div', {

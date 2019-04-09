@@ -162,7 +162,7 @@ function RadialChart(props) {
     <XYPlot
       height={height}
       width={width}
-        viewBox={viewBox}
+      viewBox={viewBox}
       margin={{
         ...margin,
         ...defaultMargin

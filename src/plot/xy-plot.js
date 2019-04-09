@@ -530,8 +530,7 @@ class XYPlot extends React.Component {
   }
 
   render() {
-    const {className, dontCheckIfEmpty, style, width, height} = this.props;
-      viewBox
+    const {className, dontCheckIfEmpty, style, width, height, viewBox} = this.props;
 
     if (!dontCheckIfEmpty && this._isPlotEmpty()) {
       return (
