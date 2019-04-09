@@ -136,8 +136,8 @@ function Sunburst(props) {
     getLabel,
     width,
     getSize,
-    colorType
-      viewBox
+    colorType,
+    viewBox
   } = props;
   const mappedData = getNodesToRender({
     data,
