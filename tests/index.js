@@ -1,5 +1,5 @@
 // Copyright (c) 2016 - 2017 Uber Technologies, Inc.
-//
+// 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
 // in the Software without restriction, including without limitation the rights
@@ -28,10 +28,12 @@ import './utils/scales-utils-tests';
 import './utils/series-utils-tests';
 
 import './components';
+import './components/line-series-canvas-test';
 import './components/animation-tests';
 import './components/area-series-tests';
 import './components/arc-series-tests';
 import './components/axes-tests';
+import './components/axis-tick-format-tests';
 import './components/axis-title-tests';
 import './components/bar-series-tests';
 import './components/borders-tests';
@@ -44,9 +46,11 @@ import './components/custom-svg-series-tests';
 import './components/data-article-tests';
 import './components/decorative-axis-tests';
 import './components/gradient-tests';
+import './components/grid-lines-tests';
 import './components/heatmap-tests';
 import './components/hexbin-series-tests';
 import './components/highlight-tests';
+import './components/hints-tests';
 import './components/interaction-article-tests';
 import './components/legends-tests';
 import './components/label-series-tests';

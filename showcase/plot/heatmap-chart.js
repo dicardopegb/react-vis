@@ -18,20 +18,25 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-import React from 'react';
+import React, {Component} from 'react';
 
-import {XYPlot, XAxis, YAxis, HeatmapSeries} from 'index';
+import {XYPlot, XAxis, YAxis, HeatmapSeries, Hint} from 'index';
 
-export default class Example extends React.Component {
+export default class HeatmapChart extends Component {
+  state = {
+    value: false
+  };
+
   render() {
+    const {value} = this.state;
     return (
-      <XYPlot
-        width={300}
-        height={300}>
+      <XYPlot width={300} height={300}>
         <XAxis />
         <YAxis />
         <HeatmapSeries
           className="heatmap-series-example"
+          onValueMouseOver={v => this.setState({value: v})}
+          onSeriesMouseOut={v => this.setState({value: false})}
           data={[
             {x: 1, y: 0, color: 10},
             {x: 1, y: 5, color: 10},
@@ -45,7 +50,9 @@ export default class Example extends React.Component {
             {x: 3, y: 5, color: 2},
             {x: 3, y: 10, color: 6},
             {x: 3, y: 15, color: 12}
-          ]}/>
+          ]}
+        />
+        {value !== false && <Hint value={value} />}
       </XYPlot>
     );
   }
