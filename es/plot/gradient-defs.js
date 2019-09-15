@@ -21,6 +21,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { getCombinedClassName } from '../utils/styling-utils';
+
 var predefinedClassName = 'rv-gradient-defs';
 
 function GradientDefs(props) {
@@ -28,7 +30,7 @@ function GradientDefs(props) {
 
   return React.createElement(
     'defs',
-    { className: predefinedClassName + ' ' + className },
+    { className: getCombinedClassName(predefinedClassName, className) },
     props.children
   );
 }

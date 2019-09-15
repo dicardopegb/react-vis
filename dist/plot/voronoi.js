@@ -18,6 +18,8 @@ var _d3Voronoi = require('d3-voronoi');
 
 var _scalesUtils = require('../utils/scales-utils');
 
+var _stylingUtils = require('../utils/styling-utils');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var NOOP = function NOOP(f) {
@@ -83,7 +85,7 @@ function Voronoi(props) {
   return _react2.default.createElement(
     'g',
     {
-      className: className + ' rv-voronoi',
+      className: (0, _stylingUtils.getCombinedClassName)(className, "rv-voronoi"),
       style: style
       // Because of the nature of how touch events, and more specifically touchmove
       // and how it differs from mouseover, we must manage touch events on the parent

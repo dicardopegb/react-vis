@@ -29,11 +29,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // THE SOFTWARE.
 
 import React from 'react';
-
 import PropTypes from 'prop-types';
 
 import Animation from '../../animation';
 import { ANIMATED_SERIES_PROPS } from '../../utils/series-utils';
+import { getCombinedClassName } from '../../utils/styling-utils';
 import { DEFAULT_OPACITY } from '../../theme';
 
 import AbstractSeries from './abstract-series';
@@ -235,7 +235,7 @@ var WhiskerSeries = function (_AbstractSeries) {
       return React.createElement(
         'g',
         {
-          className: predefinedClassName + ' ' + className,
+          className: getCombinedClassName(predefinedClassName, className),
           transform: 'translate(' + marginLeft + ',' + marginTop + ')'
         },
         data.map(renderWhiskerMark(whiskerMarkProps))

@@ -18,6 +18,8 @@ var _animation2 = _interopRequireDefault(_animation);
 
 var _seriesUtils = require('../../utils/series-utils');
 
+var _stylingUtils = require('../../utils/styling-utils');
+
 var _abstractSeries = require('./abstract-series');
 
 var _abstractSeries2 = _interopRequireDefault(_abstractSeries);
@@ -96,7 +98,7 @@ var PolygonSeries = function (_AbstractSeries) {
       var yFunctor = this._getAttributeFunctor('y');
 
       return _react2.default.createElement('path', {
-        className: predefinedClassName + ' ' + className,
+        className: (0, _stylingUtils.getCombinedClassName)(predefinedClassName, className),
         onMouseOver: function onMouseOver(e) {
           return _this2._seriesMouseOverHandler(data, e);
         },

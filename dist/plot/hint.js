@@ -20,6 +20,8 @@ var _dataUtils = require('../utils/data-utils');
 
 var _scalesUtils = require('../utils/scales-utils');
 
+var _stylingUtils = require('../utils/styling-utils');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -385,7 +387,7 @@ var Hint = function (_PureComponent) {
       return _react2.default.createElement(
         'div',
         {
-          className: 'rv-hint ' + positionClassName + ' ' + className,
+          className: (0, _stylingUtils.getCombinedClassName)("rv-hint", positionClassName, className),
           style: _extends({}, style, position, {
             position: 'absolute'
           })

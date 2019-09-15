@@ -26,6 +26,8 @@ var _d3Scale = require('d3-scale');
 
 var _seriesUtils = require('../../utils/series-utils');
 
+var _stylingUtils = require('../../utils/styling-utils');
+
 var _theme = require('../../theme');
 
 var _abstractSeries = require('./abstract-series');
@@ -132,7 +134,7 @@ var HexbinSeries = function (_AbstractSeries) {
       return _react2.default.createElement(
         'g',
         {
-          className: predefinedClassName + ' ' + className,
+          className: (0, _stylingUtils.getCombinedClassName)(predefinedClassName, className),
           transform: 'translate(' + marginLeft + ',' + marginTop + ')'
         },
         hexes.map(function (d, i) {

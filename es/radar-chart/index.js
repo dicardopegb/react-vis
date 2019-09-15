@@ -29,6 +29,7 @@ import { AnimationPropType } from '../animation';
 import XYPlot from '../plot/xy-plot';
 import { DISCRETE_COLOR_RANGE } from '../theme';
 import { MarginPropType } from '../utils/chart-utils';
+import { getCombinedClassName } from '../utils/styling-utils';
 import MarkSeries from '../plot/series/mark-series';
 import PolygonSeries from '../plot/series/polygon-series';
 import LabelSeries from '../plot/series/label-series';
@@ -319,7 +320,7 @@ function RadarChart(props) {
       width: width,
       margin: margin,
       dontCheckIfEmpty: true,
-      className: className + ' ' + predefinedClassName,
+      className: getCombinedClassName(className, predefinedClassName),
       onMouseLeave: onMouseLeave,
       onMouseEnter: onMouseEnter,
       xDomain: [-1, 1],

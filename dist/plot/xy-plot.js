@@ -38,6 +38,8 @@ var _deepEqual = require('deep-equal');
 
 var _deepEqual2 = _interopRequireDefault(_deepEqual);
 
+var _stylingUtils = require('../utils/styling-utils');
+
 var _scalesUtils = require('../utils/scales-utils');
 
 var _seriesUtils = require('../utils/series-utils');
@@ -389,13 +391,6 @@ var XYPlot = function (_React$Component) {
      * @private
      */
 
-
-    /**
-     * Trigger doule-click related callbacks if they are available.
-     * @param {React.SyntheticEvent} event Double-click event.
-     * @private
-     */
-
   }, {
     key: 'renderCanvasComponents',
     value: function renderCanvasComponents(components, props) {
@@ -436,12 +431,13 @@ var XYPlot = function (_React$Component) {
           style = _props.style,
           width = _props.width,
           height = _props.height,
-          viewBox = _props.viewBox;
+          viewBox = _props.viewBox,
+          onWheel = _props.onWheel;
 
 
       if (!dontCheckIfEmpty && this._isPlotEmpty()) {
         return _react2.default.createElement('div', {
-          className: 'rv-xy-plot ' + className,
+          className: (0, _stylingUtils.getCombinedClassName)("rv-xy-plot", className),
           style: _extends({
             width: viewBox ? undefined : width + 'px',
             height: viewBox ? undefined : height + 'px'
@@ -456,7 +452,7 @@ var XYPlot = function (_React$Component) {
             width: viewBox ? undefined : width + 'px',
             height: viewBox ? undefined : height + 'px'
           },
-          className: 'rv-xy-plot ' + className
+          className: (0, _stylingUtils.getCombinedClassName)("rv-xy-plot", className)
         },
         _react2.default.createElement(
           'svg',
@@ -477,7 +473,7 @@ var XYPlot = function (_React$Component) {
             onTouchMove: this._touchMoveHandler,
             onTouchEnd: this._touchEndHandler,
             onTouchCancel: this._touchCancelHandler,
-            onWheel: this._wheelHandler
+            onWheel: onWheel
           },
           components.filter(function (c) {
             return c && c.type.requiresSVG;
@@ -646,14 +642,6 @@ var _initialiseProps = function _initialiseProps() {
         component.onParentTouchStart(event);
       }
     });
-  };
-
-  this._wheelHandler = function (event) {
-    var onWheel = _this3.props.onWheel;
-
-    if (onWheel) {
-      onWheel(event);
-    }
   };
 };
 

@@ -29,12 +29,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // THE SOFTWARE.
 
 import React, { PureComponent } from 'react';
-
 import PropTypes from 'prop-types';
 
 import { transformValueToString } from '../utils/data-utils';
-
 import { getAttributeFunctor } from '../utils/scales-utils';
+import { getCombinedClassName } from '../utils/styling-utils';
 
 /*
  * Hint provides two options for placement of hint:
@@ -375,7 +374,7 @@ var Hint = function (_PureComponent) {
       return React.createElement(
         'div',
         {
-          className: 'rv-hint ' + positionClassName + ' ' + className,
+          className: getCombinedClassName("rv-hint", positionClassName, className),
           style: _extends({}, style, position, {
             position: 'absolute'
           })

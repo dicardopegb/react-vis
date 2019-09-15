@@ -32,6 +32,7 @@ import React from 'react';
 
 import Animation from '../../animation';
 import { ANIMATED_SERIES_PROPS } from '../../utils/series-utils';
+import { getCombinedClassName } from '../../utils/styling-utils';
 
 import AbstractSeries from './abstract-series';
 
@@ -83,7 +84,7 @@ var HeatmapSeries = function (_AbstractSeries) {
       return React.createElement(
         'g',
         {
-          className: predefinedClassName + ' ' + className,
+          className: getCombinedClassName(predefinedClassName, className),
           transform: 'translate(' + marginLeft + ',' + marginTop + ')'
         },
         data.map(function (d, i) {

@@ -32,6 +32,8 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _stylingUtils = require('../utils/styling-utils');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var propTypes = {
@@ -72,9 +74,9 @@ function Borders(props) {
   var width = innerWidth + marginLeft + marginRight;
   return _react2.default.createElement(
     'g',
-    { className: CLASSES.container + ' ' + className },
+    { className: (0, _stylingUtils.getCombinedClassName)(CLASSES.container, className) },
     _react2.default.createElement('rect', {
-      className: CLASSES.bottom + ' ' + className + '-bottom',
+      className: (0, _stylingUtils.getCombinedClassName)(CLASSES.bottom, className + '-bottom'),
       style: _extends({}, style.all, style.bottom),
       x: 0,
       y: height - marginBottom,
@@ -82,7 +84,7 @@ function Borders(props) {
       height: marginBottom
     }),
     _react2.default.createElement('rect', {
-      className: CLASSES.left + ' ' + className + '-left',
+      className: (0, _stylingUtils.getCombinedClassName)(CLASSES.left, className + '-left'),
       style: _extends({}, style.all, style.left),
       x: 0,
       y: 0,
@@ -90,7 +92,7 @@ function Borders(props) {
       height: height
     }),
     _react2.default.createElement('rect', {
-      className: CLASSES.right + ' ' + className + '-right',
+      className: (0, _stylingUtils.getCombinedClassName)(CLASSES.right, className + '-right'),
       style: _extends({}, style.all, style.right),
       x: width - marginRight,
       y: 0,
@@ -98,7 +100,7 @@ function Borders(props) {
       height: height
     }),
     _react2.default.createElement('rect', {
-      className: CLASSES.top + ' ' + className + '-top',
+      className: (0, _stylingUtils.getCombinedClassName)(CLASSES.top, className + '-top'),
       style: _extends({}, style.all, style.top),
       x: 0,
       y: 0,

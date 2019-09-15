@@ -28,6 +28,8 @@ var _labelSeries = require('../plot/series/label-series');
 
 var _labelSeries2 = _interopRequireDefault(_labelSeries);
 
+var _stylingUtils = require('../utils/styling-utils');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -224,7 +226,7 @@ var TreemapSVG = function (_React$Component) {
       return _react2.default.createElement(
         _xyPlot2.default,
         _extends({
-          className: 'rv-treemap ' + (useCirclePacking ? 'rv-treemap-circle-packed' : '') + ' ' + className,
+          className: (0, _stylingUtils.getCombinedClassName)("rv-treemap", useCirclePacking && "rv-treemap-circle-paked", className),
           width: width,
           height: height,
           yDomain: [maxY, minY],

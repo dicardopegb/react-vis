@@ -29,12 +29,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // THE SOFTWARE.
 
 import React, { PureComponent } from 'react';
-
 import PropTypes from 'prop-types';
 
 import { transformValueToString } from '../utils/data-utils';
-
 import { getAttributeFunctor } from '../utils/scales-utils';
+import { getCombinedClassName } from '../utils/styling-utils';
 
 /**
  * Format title by detault.
@@ -187,7 +186,7 @@ var Crosshair = function (_PureComponent) {
       return React.createElement(
         'div',
         {
-          className: 'rv-crosshair ' + className,
+          className: getCombinedClassName("rv-crosshair", className),
           style: { left: left + 'px', top: top + 'px' }
         },
         React.createElement('div', {

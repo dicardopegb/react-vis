@@ -35,6 +35,7 @@ import PropTypes from 'prop-types';
 import AbstractSeries from '../series/abstract-series';
 import DecorativeAxisTicks from './decorative-axis-ticks';
 import Animation from '../../animation';
+import { getCombinedClassName } from '../../utils/styling-utils';
 
 var predefinedClassName = 'rv-xy-manipulable-axis rv-xy-plot__axis';
 
@@ -80,7 +81,7 @@ var DecorativeAxis = function (_AbstractSeries) {
       return React.createElement(
         'g',
         {
-          className: predefinedClassName + ' ' + className,
+          className: getCombinedClassName(predefinedClassName, className),
           transform: 'translate(' + marginLeft + ',' + marginTop + ')'
         },
         React.createElement('line', _extends({}, _extends({

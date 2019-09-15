@@ -24,6 +24,8 @@ var _axisUtils = require('../../utils/axis-utils');
 
 var _scalesUtils = require('../../utils/scales-utils');
 
+var _stylingUtils = require('../../utils/styling-utils');
+
 var _axisLine = require('./axis-line');
 
 var _axisLine2 = _interopRequireDefault(_axisLine);
@@ -231,7 +233,7 @@ var Axis = function (_PureComponent) {
         'g',
         {
           transform: 'translate(' + leftPos + ',' + topPos + ')',
-          className: predefinedClassName + ' ' + axisClassName + ' ' + className,
+          className: (0, _stylingUtils.getCombinedClassName)(predefinedClassName, axisClassName, className),
           style: style
         },
         !hideLine && _react2.default.createElement(_axisLine2.default, {

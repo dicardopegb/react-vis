@@ -29,15 +29,14 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // THE SOFTWARE.
 
 import React from 'react';
-
 import PropTypes from 'prop-types';
-
 import Animation from '../../animation';
-import { ANIMATED_SERIES_PROPS } from '../../utils/series-utils';
 import { arc as arcBuilder } from 'd3-shape';
 
+import { ANIMATED_SERIES_PROPS } from '../../utils/series-utils';
 import AbstractSeries from './abstract-series';
 import { getAttributeFunctor, getAttr0Functor, extractScalePropsFromProps, getMissingScaleProps, getScalePropTypesByAttribute } from '../../utils/scales-utils';
+import { getCombinedClassName } from '../../utils/styling-utils';
 
 var predefinedClassName = 'rv-xy-plot__series rv-xy-plot__series--arc';
 var ATTRIBUTES = ['radius', 'angle'];
@@ -198,7 +197,7 @@ var ArcSeries = function (_AbstractSeries) {
       return React.createElement(
         'g',
         {
-          className: predefinedClassName + ' ' + className,
+          className: getCombinedClassName(predefinedClassName, className),
           onMouseOver: this._seriesMouseOverHandler,
           onMouseOut: this._seriesMouseOutHandler,
           onClick: this._seriesClickHandler,

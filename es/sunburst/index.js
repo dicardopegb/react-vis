@@ -23,7 +23,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 import React from 'react';
 import PropTypes from 'prop-types';
 import { hierarchy, partition } from 'd3-hierarchy';
-
 import { scaleLinear, scaleSqrt } from 'd3-scale';
 
 import { AnimationPropType } from '../animation';
@@ -32,6 +31,7 @@ import ArcSeries from '../plot/series/arc-series';
 import XYPlot from '../plot/xy-plot';
 import { getRadialDomain } from '../utils/series-utils';
 import { getRadialLayoutMargin } from '../utils/chart-utils';
+import { getCombinedClassName } from '../utils/styling-utils';
 
 var predefinedClassName = 'rv-sunburst';
 
@@ -159,7 +159,7 @@ function Sunburst(props) {
       height: height,
       hasTreeStructure: true,
       width: width,
-      className: predefinedClassName + ' ' + className,
+      className: getCombinedClassName(predefinedClassName, className),
       margin: margin,
       xDomain: [-radialDomain, radialDomain],
       yDomain: [-radialDomain, radialDomain]

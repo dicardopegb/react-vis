@@ -48,6 +48,8 @@ var _theme = require('../theme');
 
 var _chartUtils = require('../utils/chart-utils');
 
+var _stylingUtils = require('../utils/styling-utils');
+
 var _lineSeries = require('../plot/series/line-series');
 
 var _lineSeries2 = _interopRequireDefault(_lineSeries);
@@ -277,7 +279,7 @@ var ParallelCoordinates = function (_Component) {
           width: width,
           margin: margin,
           dontCheckIfEmpty: true,
-          className: className + ' ' + predefinedClassName,
+          className: (0, _stylingUtils.getCombinedClassName)(className, predefinedClassName),
           onMouseLeave: onMouseLeave,
           onMouseEnter: onMouseEnter,
           xType: 'ordinal',

@@ -36,6 +36,8 @@ var _discreteColorLegend = require('./discrete-color-legend');
 
 var _discreteColorLegend2 = _interopRequireDefault(_discreteColorLegend);
 
+var _stylingUtils = require('../utils/styling-utils');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var propTypes = _extends({}, _discreteColorLegend2.default.propTypes, {
@@ -75,7 +77,7 @@ function SearchableDiscreteColorLegend(props) {
   var filteredItems = searchFn(items, searchText);
   return _react2.default.createElement(
     'div',
-    { className: 'rv-search-wrapper ' + className, style: { width: width, height: height } },
+    { className: (0, _stylingUtils.getCombinedClassName)("rv-search-wrapper", className), style: { width: width, height: height } },
     _react2.default.createElement(
       'form',
       { className: 'rv-search-wrapper__form' },

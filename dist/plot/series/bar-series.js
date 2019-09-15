@@ -22,6 +22,8 @@ var _animation2 = _interopRequireDefault(_animation);
 
 var _seriesUtils = require('../../utils/series-utils');
 
+var _stylingUtils = require('../../utils/styling-utils');
+
 var _abstractSeries = require('./abstract-series');
 
 var _abstractSeries2 = _interopRequireDefault(_abstractSeries);
@@ -113,7 +115,7 @@ var BarSeries = function (_AbstractSeries) {
       return _react2.default.createElement(
         'g',
         {
-          className: predefinedClassName + ' ' + className,
+          className: (0, _stylingUtils.getCombinedClassName)(predefinedClassName, className),
           transform: 'translate(' + marginLeft + ',' + marginTop + ')'
         },
         data.map(function (d, i) {

@@ -54,6 +54,8 @@ var _seriesUtils = require('../utils/series-utils');
 
 var _chartUtils = require('../utils/chart-utils');
 
+var _stylingUtils = require('../utils/styling-utils');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var predefinedClassName = 'rv-sunburst';
@@ -182,7 +184,7 @@ function Sunburst(props) {
       height: height,
       hasTreeStructure: true,
       width: width,
-      className: predefinedClassName + ' ' + className,
+      className: (0, _stylingUtils.getCombinedClassName)(predefinedClassName, className),
       margin: margin,
       xDomain: [-radialDomain, radialDomain],
       yDomain: [-radialDomain, radialDomain]

@@ -12,9 +12,20 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _stylingUtils = require('../utils/styling-utils');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// Copyright (c) 2016 - 2017 Uber Technologies, Inc.
+var propTypes = {
+  className: _propTypes2.default.string,
+  circlesTotal: _propTypes2.default.number,
+  endSize: _propTypes2.default.number,
+  endTitle: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]).isRequired,
+  height: _propTypes2.default.number,
+  startSize: _propTypes2.default.number,
+  startTitle: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]).isRequired,
+  width: _propTypes2.default.number
+}; // Copyright (c) 2016 - 2017 Uber Technologies, Inc.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -33,17 +44,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-
-var propTypes = {
-  className: _propTypes2.default.string,
-  circlesTotal: _propTypes2.default.number,
-  endSize: _propTypes2.default.number,
-  endTitle: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]).isRequired,
-  height: _propTypes2.default.number,
-  startSize: _propTypes2.default.number,
-  startTitle: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]).isRequired,
-  width: _propTypes2.default.number
-};
 
 var defaultProps = {
   circlesTotal: 10,
@@ -83,7 +83,7 @@ function ContinuousSizeLegend(_ref) {
   return _react2.default.createElement(
     'div',
     {
-      className: 'rv-continuous-size-legend ' + className,
+      className: (0, _stylingUtils.getCombinedClassName)("rv-continuous-size-legend", className),
       style: { width: width, height: height }
     },
     _react2.default.createElement(

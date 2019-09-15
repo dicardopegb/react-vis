@@ -22,6 +22,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 import React from 'react';
 
 import TreemapLeaf from './treemap-leaf';
+import { getCombinedClassName } from '../utils/styling-utils';
 
 function TreemapDOM(props) {
   var animation = props.animation,
@@ -39,7 +40,7 @@ function TreemapDOM(props) {
   return React.createElement(
     'div',
     {
-      className: 'rv-treemap ' + (useCirclePacking ? 'rv-treemap-circle-packed' : '') + ' ' + className,
+      className: getCombinedClassName("rv-treemap", useCirclePacking && "rv-treemap-circle-paked", className),
       style: { height: height, width: width }
     },
     nodes.map(function (node, index) {

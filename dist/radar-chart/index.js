@@ -46,6 +46,8 @@ var _theme = require('../theme');
 
 var _chartUtils = require('../utils/chart-utils');
 
+var _stylingUtils = require('../utils/styling-utils');
+
 var _markSeries = require('../plot/series/mark-series');
 
 var _markSeries2 = _interopRequireDefault(_markSeries);
@@ -349,7 +351,7 @@ function RadarChart(props) {
       width: width,
       margin: margin,
       dontCheckIfEmpty: true,
-      className: className + ' ' + predefinedClassName,
+      className: (0, _stylingUtils.getCombinedClassName)(className, predefinedClassName),
       onMouseLeave: onMouseLeave,
       onMouseEnter: onMouseEnter,
       xDomain: [-1, 1],

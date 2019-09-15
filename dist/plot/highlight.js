@@ -12,15 +12,17 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _abstractSeries = require('./series/abstract-series');
 
 var _abstractSeries2 = _interopRequireDefault(_abstractSeries);
 
 var _scalesUtils = require('../utils/scales-utils');
 
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
+var _stylingUtils = require('../utils/styling-utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -344,7 +346,7 @@ var Highlight = function (_AbstractSeries) {
         'g',
         {
           transform: 'translate(' + leftPos + ', ' + topPos + ')',
-          className: className + ' rv-highlight-container'
+          className: (0, _stylingUtils.getCombinedClassName)(className, "rv-highlight-container")
         },
         _react2.default.createElement('rect', {
           className: 'rv-mouse-target',

@@ -18,6 +18,8 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _scalesUtils = require('../utils/scales-utils');
 
+var _stylingUtils = require('../utils/styling-utils');
+
 var _animation = require('../animation');
 
 var _animation2 = _interopRequireDefault(_animation);
@@ -152,7 +154,7 @@ var GridLines = function (_PureComponent) {
         'g',
         {
           transform: 'translate(' + left + ',' + top + ')',
-          className: 'rv-xy-plot__grid-lines ' + className
+          className: (0, _stylingUtils.getCombinedClassName)("rv-xy-plot__grid-lines", className)
         },
         values.map(function (v, i) {
           var _pathProps;

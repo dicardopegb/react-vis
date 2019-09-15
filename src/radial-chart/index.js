@@ -124,7 +124,7 @@ function RadialChart(props) {
     style,
     width,
     viewBox
-  } = this.props;
+  } = props;
   const mappedData = getWedgesToRender({
     data,
     height,

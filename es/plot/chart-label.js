@@ -27,8 +27,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // THE SOFTWARE.
 
 import React from 'react';
-
 import PropTypes from 'prop-types';
+
+import { getCombinedClassName } from '../utils/styling-utils';
 
 var ChartLabel = function (_React$PureComponent) {
   _inherits(ChartLabel, _React$PureComponent);
@@ -59,12 +60,12 @@ var ChartLabel = function (_React$PureComponent) {
       var width = innerWidth + (includeMargin ? marginLeft + marginRight : 0);
       var height = innerHeight + (includeMargin ? marginTop + marginBottom : 0);
       var xPos = width * xPercent + (includeMargin ? 0 : marginLeft);
-      var yPos = height * yPercent + (includeMargin ? marginLeft : 0);
+      var yPos = height * yPercent + (includeMargin ? marginTop : 0);
       return React.createElement(
         'g',
         {
           transform: 'translate(' + xPos + ', ' + yPos + ')',
-          className: 'rv-xy-plot__axis__title ' + className },
+          className: getCombinedClassName("rv-xy-plot__axis__title", className) },
         React.createElement(
           'text',
           style,

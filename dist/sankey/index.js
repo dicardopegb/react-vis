@@ -22,6 +22,8 @@ var _xyPlot2 = _interopRequireDefault(_xyPlot);
 
 var _chartUtils = require('../utils/chart-utils');
 
+var _stylingUtils = require('../utils/styling-utils');
+
 var _verticalRectSeries = require('../plot/series/vertical-rect-series');
 
 var _verticalRectSeries2 = _interopRequireDefault(_verticalRectSeries);
@@ -112,7 +114,7 @@ function Sankey(props) {
 
   return _react2.default.createElement(
     _xyPlot2.default,
-    _extends({}, props, { yType: 'literal', className: 'rv-sankey ' + className }),
+    _extends({}, props, { yType: 'literal', className: (0, _stylingUtils.getCombinedClassName)("rv-sankey", className) }),
     linksCopy.map(function (link, i) {
       return _react2.default.createElement(_sankeyLink2.default, {
         style: style.links,
@@ -130,7 +132,7 @@ function Sankey(props) {
     }),
     _react2.default.createElement(_verticalRectSeries2.default, {
       animation: animation,
-      className: className + ' rv-sankey__node',
+      className: (0, _stylingUtils.getCombinedClassName)(className, "rv-sankey__node"),
       data: nodesCopy.map(function (node) {
         return _extends({}, node, {
           y: node.y1 - marginTop,

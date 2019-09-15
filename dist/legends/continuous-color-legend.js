@@ -14,19 +14,11 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _theme = require('../theme');
 
+var _stylingUtils = require('../utils/styling-utils');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var propTypes = {
-  className: _propTypes2.default.string,
-  height: _propTypes2.default.number,
-  endColor: _propTypes2.default.string,
-  endTitle: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]).isRequired,
-  midColor: _propTypes2.default.string,
-  midTitle: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]),
-  startColor: _propTypes2.default.string,
-  startTitle: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]).isRequired,
-  width: _propTypes2.default.number
-}; // Copyright (c) 2016 - 2017 Uber Technologies, Inc.
+// Copyright (c) 2016 - 2017 Uber Technologies, Inc.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -45,6 +37,18 @@ var propTypes = {
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
+
+var propTypes = {
+  className: _propTypes2.default.string,
+  height: _propTypes2.default.number,
+  endColor: _propTypes2.default.string,
+  endTitle: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]).isRequired,
+  midColor: _propTypes2.default.string,
+  midTitle: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]),
+  startColor: _propTypes2.default.string,
+  startTitle: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]).isRequired,
+  width: _propTypes2.default.number
+};
 
 var defaultProps = {
   className: '',
@@ -71,7 +75,7 @@ function ContinuousColorLegend(_ref) {
   return _react2.default.createElement(
     'div',
     {
-      className: 'rv-continuous-color-legend ' + className,
+      className: (0, _stylingUtils.getCombinedClassName)("rv-continuous-color-legend", className),
       style: { width: width, height: height }
     },
     _react2.default.createElement('div', {

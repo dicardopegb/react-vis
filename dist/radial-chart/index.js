@@ -54,6 +54,8 @@ var _chartUtils = require('../utils/chart-utils');
 
 var _seriesUtils = require('../utils/series-utils');
 
+var _stylingUtils = require('../utils/styling-utils');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var predefinedClassName = 'rv-radial-chart';
@@ -132,29 +134,28 @@ function getMaxRadius(width, height) {
 }
 
 function RadialChart(props) {
-  var _props = this.props,
-      animation = _props.animation,
-      className = _props.className,
-      children = _props.children,
-      colorType = _props.colorType,
-      data = _props.data,
-      getAngle = _props.getAngle,
-      getLabel = _props.getLabel,
-      getSubLabel = _props.getSubLabel,
-      height = _props.height,
-      hideRootNode = _props.hideRootNode,
-      innerRadius = _props.innerRadius,
-      labelsAboveChildren = _props.labelsAboveChildren,
-      labelsRadiusMultiplier = _props.labelsRadiusMultiplier,
-      labelsStyle = _props.labelsStyle,
-      margin = _props.margin,
-      onMouseLeave = _props.onMouseLeave,
-      onMouseEnter = _props.onMouseEnter,
-      radius = _props.radius,
-      showLabels = _props.showLabels,
-      style = _props.style,
-      width = _props.width,
-      viewBox = _props.viewBox;
+  var animation = props.animation,
+      className = props.className,
+      children = props.children,
+      colorType = props.colorType,
+      data = props.data,
+      getAngle = props.getAngle,
+      getLabel = props.getLabel,
+      getSubLabel = props.getSubLabel,
+      height = props.height,
+      hideRootNode = props.hideRootNode,
+      innerRadius = props.innerRadius,
+      labelsAboveChildren = props.labelsAboveChildren,
+      labelsRadiusMultiplier = props.labelsRadiusMultiplier,
+      labelsStyle = props.labelsStyle,
+      margin = props.margin,
+      onMouseLeave = props.onMouseLeave,
+      onMouseEnter = props.onMouseEnter,
+      radius = props.radius,
+      showLabels = props.showLabels,
+      style = props.style,
+      width = props.width,
+      viewBox = props.viewBox;
 
   var mappedData = getWedgesToRender({
     data: data,
@@ -193,7 +194,7 @@ function RadialChart(props) {
       width: width,
       viewBox: viewBox,
       margin: _extends({}, margin, defaultMargin),
-      className: className + ' ' + predefinedClassName,
+      className: (0, _stylingUtils.getCombinedClassName)(className, predefinedClassName),
       onMouseLeave: onMouseLeave,
       onMouseEnter: onMouseEnter,
       xDomain: [-radialDomain, radialDomain],

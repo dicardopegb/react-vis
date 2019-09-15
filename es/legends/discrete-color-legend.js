@@ -21,11 +21,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 // THE SOFTWARE.
 
 import React from 'react';
-
 import PropTypes from 'prop-types';
 
 import DiscreteColorLegendItem from './discrete-color-legend-item';
 import { DISCRETE_COLOR_RANGE } from '../theme';
+import { getCombinedClassName } from '../utils/styling-utils';
 
 function DiscreteColorLegend(_ref) {
   var className = _ref.className,
@@ -42,7 +42,7 @@ function DiscreteColorLegend(_ref) {
   return React.createElement(
     'div',
     {
-      className: 'rv-discrete-color-legend ' + orientation + ' ' + className,
+      className: getCombinedClassName("rv-discrete-color-legend", orientation, className),
       style: _extends({ width: width, height: height }, style)
     },
     items.map(function (item, i) {

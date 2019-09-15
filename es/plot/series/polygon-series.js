@@ -32,6 +32,7 @@ import React from 'react';
 
 import Animation from '../../animation';
 import { ANIMATED_SERIES_PROPS } from '../../utils/series-utils';
+import { getCombinedClassName } from '../../utils/styling-utils';
 
 import AbstractSeries from './abstract-series';
 
@@ -83,7 +84,7 @@ var PolygonSeries = function (_AbstractSeries) {
       var yFunctor = this._getAttributeFunctor('y');
 
       return React.createElement('path', {
-        className: predefinedClassName + ' ' + className,
+        className: getCombinedClassName(predefinedClassName, className),
         onMouseOver: function onMouseOver(e) {
           return _this2._seriesMouseOverHandler(data, e);
         },

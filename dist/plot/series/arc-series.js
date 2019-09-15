@@ -38,15 +38,17 @@ var _animation = require('../../animation');
 
 var _animation2 = _interopRequireDefault(_animation);
 
-var _seriesUtils = require('../../utils/series-utils');
-
 var _d3Shape = require('d3-shape');
+
+var _seriesUtils = require('../../utils/series-utils');
 
 var _abstractSeries = require('./abstract-series');
 
 var _abstractSeries2 = _interopRequireDefault(_abstractSeries);
 
 var _scalesUtils = require('../../utils/scales-utils');
+
+var _stylingUtils = require('../../utils/styling-utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -215,7 +217,7 @@ var ArcSeries = function (_AbstractSeries) {
       return _react2.default.createElement(
         'g',
         {
-          className: predefinedClassName + ' ' + className,
+          className: (0, _stylingUtils.getCombinedClassName)(predefinedClassName, className),
           onMouseOver: this._seriesMouseOverHandler,
           onMouseOut: this._seriesMouseOutHandler,
           onClick: this._seriesClickHandler,

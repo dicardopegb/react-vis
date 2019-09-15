@@ -36,6 +36,7 @@ import PropTypes from 'prop-types';
 import AbstractSeries from './abstract-series';
 import Animation from '../../animation';
 import { ANIMATED_SERIES_PROPS } from '../../utils/series-utils';
+import { getCombinedClassName } from '../../utils/styling-utils';
 
 var predefinedClassName = 'rv-xy-plot__series rv-xy-plot__series--custom-svg-wrapper';
 
@@ -101,13 +102,13 @@ function getInnerComponent(_ref) {
   }
   // if default component is a function
   if (!innerComponent) {
-    return defaultType(customComponent, positionInPixels, aggStyle);
+    return defaultType(customComponent, positionInPixels, aggStyle, positionFunctions);
   }
   if (typeof innerComponent === 'string') {
     return predefinedComponents(innerComponent || defaultType, size, aggStyle);
   }
   // if inner component is a function
-  return innerComponent(customComponent, positionInPixels, aggStyle);
+  return innerComponent(customComponent, positionInPixels, aggStyle, positionFunctions);
 }
 
 var CustomSVGSeries = function (_AbstractSeries) {
@@ -183,7 +184,7 @@ var CustomSVGSeries = function (_AbstractSeries) {
       return React.createElement(
         'g',
         {
-          className: predefinedClassName + ' ' + className,
+          className: getCombinedClassName(predefinedClassName, className),
           transform: 'translate(' + marginLeft + ',' + marginTop + ')'
         },
         contents

@@ -9,9 +9,11 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import AbstractSeries from './series/abstract-series';
 import { getAttributeScale } from '../utils/scales-utils';
-import PropTypes from 'prop-types';
+import { getCombinedClassName } from '../utils/styling-utils';
 
 function getLocs(evt) {
   var xLoc = evt.type === 'touchstart' ? evt.pageX : evt.offsetX;
@@ -327,7 +329,7 @@ var Highlight = function (_AbstractSeries) {
         'g',
         {
           transform: 'translate(' + leftPos + ', ' + topPos + ')',
-          className: className + ' rv-highlight-container'
+          className: getCombinedClassName(className, "rv-highlight-container")
         },
         React.createElement('rect', {
           className: 'rv-mouse-target',

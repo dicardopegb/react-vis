@@ -36,6 +36,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import equal from 'deep-equal';
 
+import { getCombinedClassName } from '../utils/styling-utils';
+
 import { extractScalePropsFromProps, getMissingScaleProps, getOptionalScaleProps, getXYPlotValues } from '../utils/scales-utils';
 import { getStackedData, getSeriesChildren, getSeriesPropsFromChildren } from '../utils/series-utils';
 import { getInnerDimensions, MarginPropType, DEFAULT_MARGINS } from '../utils/chart-utils';
@@ -369,13 +371,6 @@ var XYPlot = function (_React$Component) {
      * @private
      */
 
-
-    /**
-     * Trigger doule-click related callbacks if they are available.
-     * @param {React.SyntheticEvent} event Double-click event.
-     * @private
-     */
-
   }, {
     key: 'renderCanvasComponents',
     value: function renderCanvasComponents(components, props) {
@@ -416,12 +411,13 @@ var XYPlot = function (_React$Component) {
           style = _props.style,
           width = _props.width,
           height = _props.height,
-          viewBox = _props.viewBox;
+          viewBox = _props.viewBox,
+          onWheel = _props.onWheel;
 
 
       if (!dontCheckIfEmpty && this._isPlotEmpty()) {
         return React.createElement('div', {
-          className: 'rv-xy-plot ' + className,
+          className: getCombinedClassName("rv-xy-plot", className),
           style: _extends({
             width: viewBox ? undefined : width + 'px',
             height: viewBox ? undefined : height + 'px'
@@ -436,7 +432,7 @@ var XYPlot = function (_React$Component) {
             width: viewBox ? undefined : width + 'px',
             height: viewBox ? undefined : height + 'px'
           },
-          className: 'rv-xy-plot ' + className
+          className: getCombinedClassName("rv-xy-plot", className)
         },
         React.createElement(
           'svg',
@@ -457,7 +453,7 @@ var XYPlot = function (_React$Component) {
             onTouchMove: this._touchMoveHandler,
             onTouchEnd: this._touchEndHandler,
             onTouchCancel: this._touchCancelHandler,
-            onWheel: this._wheelHandler
+            onWheel: onWheel
           },
           components.filter(function (c) {
             return c && c.type.requiresSVG;
@@ -626,14 +622,6 @@ var _initialiseProps = function _initialiseProps() {
         component.onParentTouchStart(event);
       }
     });
-  };
-
-  this._wheelHandler = function (event) {
-    var onWheel = _this3.props.onWheel;
-
-    if (onWheel) {
-      onWheel(event);
-    }
   };
 };
 

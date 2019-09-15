@@ -30,9 +30,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import AbstractSeries from './abstract-series';
 import Animation from '../../animation';
 import { ANIMATED_SERIES_PROPS } from '../../utils/series-utils';
+import { getCombinedClassName } from '../../utils/styling-utils';
+
 var predefinedClassName = 'rv-xy-plot__series rv-xy-plot__series--label';
 
 var getTextAnchor = function getTextAnchor(labelAnchorX, leftOfMiddle) {
@@ -90,7 +93,7 @@ var LabelSeries = function (_AbstractSeries) {
       return React.createElement(
         'g',
         {
-          className: predefinedClassName + ' ' + className,
+          className: getCombinedClassName(predefinedClassName, className),
           transform: 'translate(' + marginLeft + ',' + marginTop + ')',
           style: style
         },

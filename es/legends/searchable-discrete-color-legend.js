@@ -21,10 +21,10 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 // THE SOFTWARE.
 
 import React from 'react';
-
 import PropTypes from 'prop-types';
 
 import DiscreteColorLegend from './discrete-color-legend';
+import { getCombinedClassName } from '../utils/styling-utils';
 
 var propTypes = _extends({}, DiscreteColorLegend.propTypes, {
   searchText: PropTypes.string,
@@ -63,7 +63,7 @@ function SearchableDiscreteColorLegend(props) {
   var filteredItems = searchFn(items, searchText);
   return React.createElement(
     'div',
-    { className: 'rv-search-wrapper ' + className, style: { width: width, height: height } },
+    { className: getCombinedClassName("rv-search-wrapper", className), style: { width: width, height: height } },
     React.createElement(
       'form',
       { className: 'rv-search-wrapper__form' },

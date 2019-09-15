@@ -39,6 +39,7 @@ import { AnimationPropType } from '../animation';
 import XYPlot from '../plot/xy-plot';
 import { DISCRETE_COLOR_RANGE } from '../theme';
 import { MarginPropType, getInnerDimensions, DEFAULT_MARGINS } from '../utils/chart-utils';
+import { getCombinedClassName } from '../utils/styling-utils';
 import LineSeries from '../plot/series/line-series';
 import LineMarkSeries from '../plot/series/line-mark-series';
 import LabelSeries from '../plot/series/label-series';
@@ -245,7 +246,7 @@ var ParallelCoordinates = function (_Component) {
           width: width,
           margin: margin,
           dontCheckIfEmpty: true,
-          className: className + ' ' + predefinedClassName,
+          className: getCombinedClassName(className, predefinedClassName),
           onMouseLeave: onMouseLeave,
           onMouseEnter: onMouseEnter,
           xType: 'ordinal',

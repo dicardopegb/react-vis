@@ -8,6 +8,7 @@ import { sankey, sankeyLinkHorizontal, sankeyLeft, sankeyRight, sankeyCenter, sa
 import XYPlot from '../plot/xy-plot';
 
 import { MarginPropType, getInnerDimensions } from '../utils/chart-utils';
+import { getCombinedClassName } from '../utils/styling-utils';
 import VerticalRectSeries from '../plot/series/vertical-rect-series';
 import LabelSeries from '../plot/series/label-series';
 import Voronoi from '../plot/voronoi';
@@ -82,7 +83,7 @@ function Sankey(props) {
 
   return React.createElement(
     XYPlot,
-    _extends({}, props, { yType: 'literal', className: 'rv-sankey ' + className }),
+    _extends({}, props, { yType: 'literal', className: getCombinedClassName("rv-sankey", className) }),
     linksCopy.map(function (link, i) {
       return React.createElement(SankeyLink, {
         style: style.links,
@@ -100,7 +101,7 @@ function Sankey(props) {
     }),
     React.createElement(VerticalRectSeries, {
       animation: animation,
-      className: className + ' rv-sankey__node',
+      className: getCombinedClassName(className, "rv-sankey__node"),
       data: nodesCopy.map(function (node) {
         return _extends({}, node, {
           y: node.y1 - marginTop,

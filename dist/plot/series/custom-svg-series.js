@@ -26,6 +26,8 @@ var _animation2 = _interopRequireDefault(_animation);
 
 var _seriesUtils = require('../../utils/series-utils');
 
+var _stylingUtils = require('../../utils/styling-utils');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -118,13 +120,13 @@ function getInnerComponent(_ref) {
   }
   // if default component is a function
   if (!innerComponent) {
-    return defaultType(customComponent, positionInPixels, aggStyle);
+    return defaultType(customComponent, positionInPixels, aggStyle, positionFunctions);
   }
   if (typeof innerComponent === 'string') {
     return predefinedComponents(innerComponent || defaultType, size, aggStyle);
   }
   // if inner component is a function
-  return innerComponent(customComponent, positionInPixels, aggStyle);
+  return innerComponent(customComponent, positionInPixels, aggStyle, positionFunctions);
 }
 
 var CustomSVGSeries = function (_AbstractSeries) {
@@ -200,7 +202,7 @@ var CustomSVGSeries = function (_AbstractSeries) {
       return _react2.default.createElement(
         'g',
         {
-          className: predefinedClassName + ' ' + className,
+          className: (0, _stylingUtils.getCombinedClassName)(predefinedClassName, className),
           transform: 'translate(' + marginLeft + ',' + marginTop + ')'
         },
         contents

@@ -38,6 +38,8 @@ var _discreteColorLegendItem2 = _interopRequireDefault(_discreteColorLegendItem)
 
 var _theme = require('../theme');
 
+var _stylingUtils = require('../utils/styling-utils');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function DiscreteColorLegend(_ref) {
@@ -55,7 +57,7 @@ function DiscreteColorLegend(_ref) {
   return _react2.default.createElement(
     'div',
     {
-      className: 'rv-discrete-color-legend ' + orientation + ' ' + className,
+      className: (0, _stylingUtils.getCombinedClassName)("rv-discrete-color-legend", orientation, className),
       style: _extends({ width: width, height: height }, style)
     },
     items.map(function (item, i) {

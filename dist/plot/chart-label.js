@@ -14,6 +14,8 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _stylingUtils = require('../utils/styling-utils');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -69,12 +71,12 @@ var ChartLabel = function (_React$PureComponent) {
       var width = innerWidth + (includeMargin ? marginLeft + marginRight : 0);
       var height = innerHeight + (includeMargin ? marginTop + marginBottom : 0);
       var xPos = width * xPercent + (includeMargin ? 0 : marginLeft);
-      var yPos = height * yPercent + (includeMargin ? marginLeft : 0);
+      var yPos = height * yPercent + (includeMargin ? marginTop : 0);
       return _react2.default.createElement(
         'g',
         {
           transform: 'translate(' + xPos + ', ' + yPos + ')',
-          className: 'rv-xy-plot__axis__title ' + className },
+          className: (0, _stylingUtils.getCombinedClassName)("rv-xy-plot__axis__title", className) },
         _react2.default.createElement(
           'text',
           style,

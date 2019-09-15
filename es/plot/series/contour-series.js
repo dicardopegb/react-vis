@@ -37,6 +37,7 @@ import { scaleLinear } from 'd3-scale';
 import AbstractSeries from './abstract-series';
 import Animation from '../../animation';
 import { ANIMATED_SERIES_PROPS } from '../../utils/series-utils';
+import { getCombinedClassName } from '../../utils/styling-utils';
 import { CONTINUOUS_COLOR_RANGE } from '../../theme';
 
 var predefinedClassName = 'rv-xy-plot__series rv-xy-plot__series--contour';
@@ -106,7 +107,7 @@ var ContourSeries = function (_AbstractSeries) {
       return React.createElement(
         'g',
         {
-          className: predefinedClassName + ' ' + className,
+          className: getCombinedClassName(predefinedClassName, className),
           transform: 'translate(' + marginLeft + ',' + marginTop + ')'
         },
         contouredData.map(function (polygon, index) {

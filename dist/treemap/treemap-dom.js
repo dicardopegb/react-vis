@@ -33,6 +33,8 @@ var _treemapLeaf = require('./treemap-leaf');
 
 var _treemapLeaf2 = _interopRequireDefault(_treemapLeaf);
 
+var _stylingUtils = require('../utils/styling-utils');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function TreemapDOM(props) {
@@ -51,7 +53,7 @@ function TreemapDOM(props) {
   return _react2.default.createElement(
     'div',
     {
-      className: 'rv-treemap ' + (useCirclePacking ? 'rv-treemap-circle-packed' : '') + ' ' + className,
+      className: (0, _stylingUtils.getCombinedClassName)("rv-treemap", useCirclePacking && "rv-treemap-circle-paked", className),
       style: { height: height, width: width }
     },
     nodes.map(function (node, index) {

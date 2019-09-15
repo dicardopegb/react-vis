@@ -3,20 +3,8 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _stylingUtils = require('../utils/styling-utils');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var predefinedClassName = 'rv-gradient-defs'; // Copyright (c) 2016 - 2017 Uber Technologies, Inc.
+exports.getCombinedClassName = getCombinedClassName;
+// Copyright (c) 2016 - 2019 Uber Technologies, Inc.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -36,23 +24,19 @@ var predefinedClassName = 'rv-gradient-defs'; // Copyright (c) 2016 - 2017 Uber 
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-function GradientDefs(props) {
-  var className = props.className;
+/**
+ * Generates interpolated class names signature based on multiple class names
+ * ignoring the falsy and non-string values
+ * @param {...string} classNames CSS class signatures.
+ * @returns {string} Interpolated string containing all valid class names.
+ */
 
-  return _react2.default.createElement(
-    'defs',
-    { className: (0, _stylingUtils.getCombinedClassName)(predefinedClassName, className) },
-    props.children
-  );
+function getCombinedClassName() {
+  for (var _len = arguments.length, classNames = Array(_len), _key = 0; _key < _len; _key++) {
+    classNames[_key] = arguments[_key];
+  }
+
+  return classNames.filter(function (cn) {
+    return cn && typeof cn === 'string';
+  }).join(' ');
 }
-
-GradientDefs.displayName = 'GradientDefs';
-GradientDefs.requiresSVG = true;
-GradientDefs.propTypes = {
-  className: _propTypes2.default.string
-};
-GradientDefs.defaultProps = {
-  className: ''
-};
-
-exports.default = GradientDefs;

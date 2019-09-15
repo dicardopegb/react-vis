@@ -21,8 +21,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 // THE SOFTWARE.
 
 import React from 'react';
-
 import PropTypes from 'prop-types';
+import { getCombinedClassName } from '../utils/styling-utils';
 
 var propTypes = {
   style: PropTypes.shape({
@@ -62,9 +62,9 @@ function Borders(props) {
   var width = innerWidth + marginLeft + marginRight;
   return React.createElement(
     'g',
-    { className: CLASSES.container + ' ' + className },
+    { className: getCombinedClassName(CLASSES.container, className) },
     React.createElement('rect', {
-      className: CLASSES.bottom + ' ' + className + '-bottom',
+      className: getCombinedClassName(CLASSES.bottom, className + '-bottom'),
       style: _extends({}, style.all, style.bottom),
       x: 0,
       y: height - marginBottom,
@@ -72,7 +72,7 @@ function Borders(props) {
       height: marginBottom
     }),
     React.createElement('rect', {
-      className: CLASSES.left + ' ' + className + '-left',
+      className: getCombinedClassName(CLASSES.left, className + '-left'),
       style: _extends({}, style.all, style.left),
       x: 0,
       y: 0,
@@ -80,7 +80,7 @@ function Borders(props) {
       height: height
     }),
     React.createElement('rect', {
-      className: CLASSES.right + ' ' + className + '-right',
+      className: getCombinedClassName(CLASSES.right, className + '-right'),
       style: _extends({}, style.all, style.right),
       x: width - marginRight,
       y: 0,
@@ -88,7 +88,7 @@ function Borders(props) {
       height: height
     }),
     React.createElement('rect', {
-      className: CLASSES.top + ' ' + className + '-top',
+      className: getCombinedClassName(CLASSES.top, className + '-top'),
       style: _extends({}, style.all, style.top),
       x: 0,
       y: 0,

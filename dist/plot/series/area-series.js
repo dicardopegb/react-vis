@@ -30,6 +30,8 @@ var _seriesUtils = require('../../utils/series-utils');
 
 var _reactUtils = require('../../utils/react-utils');
 
+var _stylingUtils = require('../../utils/styling-utils');
+
 var _abstractSeries = require('./abstract-series');
 
 var _abstractSeries2 = _interopRequireDefault(_abstractSeries);
@@ -129,7 +131,7 @@ var AreaSeries = function (_AbstractSeries) {
 
       return _react2.default.createElement('path', {
         d: d,
-        className: predefinedClassName + ' ' + className,
+        className: (0, _stylingUtils.getCombinedClassName)(predefinedClassName, className),
         transform: 'translate(' + marginLeft + ',' + marginTop + ')',
         onMouseOver: this._seriesMouseOverHandler,
         onMouseOut: this._seriesMouseOutHandler,

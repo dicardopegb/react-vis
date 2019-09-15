@@ -24,6 +24,8 @@ var _seriesUtils = require('../../utils/series-utils');
 
 var _reactUtils = require('../../utils/react-utils');
 
+var _stylingUtils = require('../../utils/styling-utils');
+
 var _theme = require('../../theme');
 
 var _abstractSeries = require('./abstract-series');
@@ -152,7 +154,7 @@ var MarkSeries = function (_AbstractSeries) {
       return _react2.default.createElement(
         'g',
         {
-          className: predefinedClassName + ' ' + className,
+          className: (0, _stylingUtils.getCombinedClassName)(predefinedClassName, className),
           transform: 'translate(' + marginLeft + ',' + marginTop + ')'
         },
         data.map(function (d, i) {
