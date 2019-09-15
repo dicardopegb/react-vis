@@ -24,6 +24,7 @@ import PropTypes from 'prop-types';
 import AbstractSeries from './abstract-series';
 import Animation from 'animation';
 import {ANIMATED_SERIES_PROPS} from 'utils/series-utils';
+import {getCombinedClassName} from 'utils/styling-utils';
 
 const predefinedClassName =
   'rv-xy-plot__series rv-xy-plot__series--custom-svg-wrapper';
@@ -100,13 +101,13 @@ function getInnerComponent({
   }
   // if default component is a function
   if (!innerComponent) {
-    return defaultType(customComponent, positionInPixels, aggStyle);
+    return defaultType(customComponent, positionInPixels, aggStyle, positionFunctions);
   }
   if (typeof innerComponent === 'string') {
     return predefinedComponents(innerComponent || defaultType, size, aggStyle);
   }
   // if inner component is a function
-  return innerComponent(customComponent, positionInPixels, aggStyle);
+  return innerComponent(customComponent, positionInPixels, aggStyle, positionFunctions);
 }
 
 class CustomSVGSeries extends AbstractSeries {
@@ -165,7 +166,7 @@ class CustomSVGSeries extends AbstractSeries {
     });
     return (
       <g
-        className={`${predefinedClassName} ${className}`}
+        className={getCombinedClassName(predefinedClassName, className)}
         transform={`translate(${marginLeft},${marginTop})`}
       >
         {contents}

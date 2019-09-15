@@ -19,8 +19,9 @@
 // THE SOFTWARE.
 
 import React from 'react';
-
 import PropTypes from 'prop-types';
+
+import {getCombinedClassName} from 'utils/styling-utils';
 
 class ChartLabel extends React.PureComponent {
   static get requiresSVG() {
@@ -47,11 +48,11 @@ class ChartLabel extends React.PureComponent {
     const width = innerWidth + (includeMargin ? marginLeft + marginRight : 0);
     const height = innerHeight + (includeMargin ? marginTop + marginBottom : 0);
     const xPos = width * xPercent + (includeMargin ? 0 : marginLeft);
-    const yPos = height * yPercent + (includeMargin ? marginLeft : 0);
+    const yPos = height * yPercent + (includeMargin ? marginTop : 0);
     return (
       <g
         transform={`translate(${xPos}, ${yPos})`}
-        className={`rv-xy-plot__axis__title ${className}`}>
+        className={getCombinedClassName("rv-xy-plot__axis__title", className)}>
         <text {...style}>{text}</text>
       </g>
     );
